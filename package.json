@@ -1,0 +1,11 @@
+{
+  "name": "lampa-ascii-screensaver",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Заставка «ASCII-рыбки» для Lampa на движке ascii-life-engine",
+  "scripts": {
+    "build": "./build.sh",
+    "test": "./build.sh && node test/check.mjs"
+  },
+  "license": "MIT"
+}
