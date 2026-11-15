@@ -25,7 +25,8 @@ const server = http.createServer((req, res) => {
   res.end(plugin);
 }).listen(0, '127.0.0.1');
 await new Promise(r => server.on('listening', r));
-const pluginUrl = `http://127.0.0.1:${server.address().port}/lampa-ascii-koi.js`;
+// PLUGIN_URL — проверить опубликованную копию (например, GitHub Pages) вместо локальной.
+const pluginUrl = process.env.PLUGIN_URL || `http://127.0.0.1:${server.address().port}/lampa-ascii-koi.js`;
 
 // 2. Vivaldi во временном профиле с портом отладки.
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'lampa-koi-'));

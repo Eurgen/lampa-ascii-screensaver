@@ -18,7 +18,8 @@ const server = http.createServer((req, res) => {
   res.end(fs.readFileSync(pluginFile));
 }).listen(0, '127.0.0.1');
 await new Promise(r => server.on('listening', r));
-const pluginUrl = `http://127.0.0.1:${server.address().port}/lampa-ascii-koi.js`;
+// PLUGIN_URL — проверить опубликованную копию (например, GitHub Pages) вместо локальной.
+const pluginUrl = process.env.PLUGIN_URL || `http://127.0.0.1:${server.address().port}/lampa-ascii-koi.js`;
 
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'lampa-koi-'));
 const port = 9300 + Math.floor(Math.random() * 600);
