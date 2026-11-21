@@ -9,15 +9,19 @@
   var TYPE = 'ascii_koi';
   var TITLE = 'ASCII-рыбки';
 
-  // Настройки движка. Мак, Vivaldi: производительность не экономим.
+  // Настройки движка. Один профиль для всех устройств, рассчитан на слабый GPU Android TV.
   var OPTIONS = {
     scene: 'koi',
     palette: 'mix',       // породы вперемешку: kohaku, sanke, showa, ogon, chagoi
     waterMood: 'sun',     // leaves | clouds | sun | moon
-    pointer: 'flee',      // рыбы уплывают от курсора
+    pointer: 'none',      // на пульте курсора нет
+    glow: false,          // пятно света вокруг курсора не нужно
     tapAction: 'none',    // клик всё равно закрывает заставку
-    fps: 30,
-    maxDpr: 2
+    fps: 24,              // на экране 60 Гц даёт ровный шаг 50 мс (20 кадров в секунду)
+    maxDpr: 1,            // холст не больше экрана в CSS-пикселях
+    cols: 100,            // меньше клеток, чем 150 по умолчанию
+    waterScale: 0.5,      // шейдер воды считает в 4 раза меньше пикселей
+    bloom: 0              // без размытой копии кадра
   };
 
   if (window.lampa_ascii_koi_loaded) return;
